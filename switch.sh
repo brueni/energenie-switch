@@ -16,17 +16,20 @@ fi
 #Dito for Outlet 2
 if [ "$4" != "stay" ]; then
         curl -s -d cte2=$4 http://$1/ > /dev/null
-	echo $3 > state_$1_outlet2.txt
+	echo $4 > state_$1_outlet2.txt
 fi
 
 #Dito for Outlet 3
 if [ "$5" != "stay" ]; then
         curl -s -d cte3=$5 http://$1/ > /dev/null
-	echo $3 > state_$1_outlet3.txt
+	echo $5 > state_$1_outlet3.txt
 fi
 
 #Dito for Outlet 4
 if [ "$6" != "stay" ]; then
         curl -s -d cte4=$6 http://$1/ > /dev/null
-	echo $3 > state_$1_outlet4.txt
+	echo $6 > state_$1_outlet4.txt
 fi
+
+cp state_* /var/www/states/
+
